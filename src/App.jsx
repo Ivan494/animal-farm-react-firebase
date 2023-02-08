@@ -9,7 +9,7 @@ function App() {
   const search = async (q) =>
 {
   const response = await fetch(
-    'http://localhost:8080?'+ new URLSearchParams({q})
+    'http://localhost:8080?' + new URLSearchParams({ q })
   );
   const data = await response.json();
   setAnimals(data);
@@ -19,7 +19,7 @@ function App() {
     <main>
       <h1>Animal Farm</h1>
 
-      <input type="text" placeholder="Search" onChange={search} />
+      <input type="text" placeholder="Search" onChange={(e)=>search(e.target.value)} />
 
       <ul>
         {animals.map((animal)=>(
